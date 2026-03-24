@@ -1,0 +1,31 @@
+<h1> es03d </h1>
+<script>
+let val1 = 10;
+let val2 = "Prova";
+let val3 = null;
+let val4 = { nome: "Omar" };
+let val5 = function () {
+return "funzione";
+};
+function tipoDato(valore) {
+if (valore === null) {
+return "null";
+}
+switch (typeof valore) {
+case "number":
+return "numero"; 
+case "string":
+return "stringa";
+case "object":
+return "oggetto";
+case "function":
+return "funzione";
+default:
+return "tipo non ritrovato";
+}}
+console.log(tipoDato(val1));
+console.log(tipoDato(val2));
+console.log(tipoDato(val3));
+console.log(tipoDato(val4));
+console.log(tipoDato(val5));
+</script>
