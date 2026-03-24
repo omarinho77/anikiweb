@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcolatrice</title>
+</head>
+<body>
+
+<h2>Calcolatrice</h2>
+
+<form id="calcForm">
+  <label>Numero 1:</label>
+  <input type="text" id="num1"><br><br>
+
+  <label>Operazione (add, sub, mul, div):</label>
+  <input type="text" id="operation"><br><br>
+
+  <label>Numero 2:</label>
+  <input type="text" id="num2"><br><br>
+
+  <button type="submit">Calcola</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+document.getElementById("calcForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const num1 = parseFloat(document.getElementById("num1").value);
+  const num2 = parseFloat(document.getElementById("num2").value);
+  const operation = document.getElementById("operation").value.trim();
+  const resultElement = document.getElementById("result");
+
+  if (isNaN(num1) || isNaN(num2)) {
+    resultElement.textContent = "Errore: inserire due numeri validi.";
+    return;
+  }
+
+  let result;
+
+  switch (operation) {
+    case "add":
+      result = num1 + num2;
+      break;
+    case "sub":
+      result = num1 - num2;
+      break;
+    case "mul":
+      result = num1 * num2;
+      break;
+    case "div":
+      if (num2 === 0) {
+        resultElement.textContent = "Errore: divisione per zero.";
+        return;
+      }
+      result = num1 / num2;
+      break;
+    default:
+      resultElement.textContent = "Operazione non valida. Usa: add, sub, mul, div.";
+      return;
+  }
+
+  resultElement.textContent = "Risultato: " + result;
+});
+</script>
+
+</body>
+</html>
