@@ -1,0 +1,18 @@
+<h1> es03b </h1>
+<script>
+let m= parseFloat(prompt("Inserisci il coefficiente angolare"));
+let c= parseFloat(prompt("Inserisci il termine noto"));
+let y = m*(- 1) + c;
+let y1 = m*10 + c;
+let interY = {x: 0, y:c};
+let interX;
+if (m!==0) {
+interX = {x: -c/ m, y:0};
+} else {
+interX = "la retta parallela all'asse x e non interseca"
+}
+console.log("Per x = - 1 y = " + y);
+console.log("Per x = 10 y = " + y1);
+console.log("Intersezione con asse y" + interY);
+console.log("Intersezione con asse x" + interX);
+</script>
