@@ -24,19 +24,16 @@
     <script>
         document.getElementById("personaForm").addEventListener("submit", function(event) {
 
-            // Recupero dati dal form
             const nome = document.getElementById("nome").value;
             const cognome = document.getElementById("cognome").value;
             const eta = parseInt(document.getElementById("eta").value);
 
-            // Creazione oggetto persona
             const persona = {
                 nome: nome,
                 cognome: cognome,
                 eta: eta
             };
 
-            // Stampa oggetto in console
             console.log(persona);
         });
     </script>
