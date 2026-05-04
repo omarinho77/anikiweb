@@ -5,7 +5,6 @@ const libro = {
   genere: "Distopico",
   numeroPagine: 328
 };
-à
 for (let chiave in libro) {
   console.log(chiave + ": " + libro[chiave]);
 }
