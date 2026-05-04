@@ -23,17 +23,21 @@
 
     <script>
         document.getElementById("personaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
+            
             const nome = document.getElementById("nome").value;
             const cognome = document.getElementById("cognome").value;
             const eta = parseInt(document.getElementById("eta").value);
 
+            
             const persona = {
                 nome: nome,
                 cognome: cognome,
                 eta: eta
             };
 
+            
             console.log(persona);
         });
     </script>
