@@ -1,37 +1,48 @@
-let num1 = parseFloat(prompt("Inserisci il primo numero:"));
-let num2 = parseFloat(prompt("Inserisci il secondo numero:"));
-let operazione = prompt("Inserisci l'operazione (+, -, *, /, **):");
-
-let risultato;
-
-if (isNaN(num1) || isNaN(num2)) {
-    alert("Errore: devi inserire numeri validi.");
-} else {
-    switch (operazione) {
-        case "+":
-            risultato = num1 + num2;
-            break;
-        case "-":
-            risultato = num1 - num2;
-            break;
-        case "*":
-            risultato = num1 * num2;
-            break;
-        case "/":
-            if (num2 === 0) {
-                alert("Errore: divisione per zero.");
-                break;
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.question("Inserisci il primo numero: ", (num1) => {
+    rl.question("Inserisci il secondo numero: ", (num2) => {
+        rl.question('Inserisci operazione (+, -, *, /, **): ', (op) => {
+            const a = parseFloat(num1);
+            const b = parseFloat(num2);
+            let risultato;
+            if (isNaN(a) || isNaN(b)) {
+                console.log("Errore: devi inserire numeri validi.");
+                rl.close();
+                return;
             }
-            risultato = num1 / num2;
-            break;
-        case "**":
-            risultato = num1 ** num2;
-            break;
-        default:
-            alert("Errore: operazione non valida.");
-    }
 
-    if (risultato !== undefined) {
-        alert("Il risultato è: " + risultato);
-    }
-}
+            switch (op) {
+                case "+":
+                    risultato = a + b;
+                    break;
+                case "-":
+                    risultato = a - b;
+                    break;
+                case "*":
+                    risultato = a * b;
+                    break;
+                case "/":
+                    if (b === 0) {
+                        console.log("Errore: divisione per zero.");
+                        rl.close();
+                        return;
+                    }
+                    risultato = a / b;
+                    break;
+                case "**":
+                    risultato = a ** b;
+                    break;
+                default:
+                    console.log("Errore: operazione non valida.");
+                    rl.close();
+                    return;
+            }
+            console.log("Risultato:", risultato);
+            rl.close();
+        });
+    });
+});
