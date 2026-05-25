@@ -201,6 +201,11 @@
         .link-card:nth-child(11) { animation-delay: 1.4s; }
         .link-card:nth-child(12) { animation-delay: 1.5s; }
         .link-card:nth-child(13) { animation-delay: 1.6s; }
+        .link-card:nth-child(14) { animation-delay: 1.7s; }
+        .link-card:nth-child(15) { animation-delay: 1.8s; }
+        .link-card:nth-child(16) { animation-delay: 1.9s; }
+        .link-card:nth-child(17) { animation-delay: 2.0s; }
+        .link-card:nth-child(18) { animation-delay: 2.1s; }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -232,6 +237,25 @@
             transform: translateX(4px);
             box-shadow: -4px 0 20px rgba(229,0,0,0.15), inset 0 0 30px rgba(229,0,0,0.03);
         }
+
+        /* Card placeholder (slot vuoto) */
+        .link-card.placeholder {
+            border-style: dashed;
+            border-color: #1f1f1f;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards;
+        }
+        .link-card.placeholder .card-num { color: #1a1a1a; }
+        .link-card.placeholder .card-tag { color: #2a2a2a; }
+        .link-card.placeholder .card-title { color: #2a2a2a; letter-spacing: 3px; }
+        .link-card.placeholder .card-arrow { color: #1a1a1a; }
+        .link-card.placeholder:hover {
+            border-color: rgba(229,0,0,0.2);
+            background: #0a0a0a;
+        }
+        .link-card.placeholder:hover .card-num { color: #2a2a2a; }
+        .link-card.placeholder:hover .card-title { color: #333; }
+        .link-card.placeholder:hover .card-arrow { color: #2a2a2a; }
 
         .card-num {
             font-family: 'Bebas Neue', sans-serif;
@@ -294,6 +318,8 @@
         <div class="divider"></div>
 
         <div class="link-grid">
+
+            <!-- ESERCIZI ESISTENTI -->
             <a class="link-card" href="esercizi/es03.html">
                 <span class="card-num">03</span>
                 <div class="card-content">
@@ -405,6 +431,49 @@
                 <span class="ext-badge">GitHub</span>
                 <span class="card-arrow">↗</span>
             </a>
+
+            <!-- SLOT VUOTI — sostituisci href, card-tag e card-title quando hai i file -->
+            <a class="link-card placeholder" href="#">
+                <span class="card-num">__</span>
+                <div class="card-content">
+                    <div class="card-tag">HTML</div>
+                    <div class="card-title">Esercizio 07a</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+            <a class="link-card placeholder" href="#">
+                <span class="card-num">__</span>
+                <div class="card-content">
+                    <div class="card-tag">HTML</div>
+                    <div class="card-title">Esercizio 07b</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+            <a class="link-card placeholder" href="#">
+                <span class="card-num">__</span>
+                <div class="card-content">
+                    <div class="card-tag">HTML</div>
+                    <div class="card-title">Esercizio 07c</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+            <a class="link-card placeholder" href="#">
+                <span class="card-num">__</span>
+                <div class="card-content">
+                    <div class="card-tag">HTML</div>
+                    <div class="card-title">Esercizio 07d</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+            <a class="link-card placeholder" href="#">
+                <span class="card-num">__</span>
+                <div class="card-content">
+                    <div class="card-tag">HTML</div>
+                    <div class="card-title">Esercizio 07e</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
         </div>
 
         <div class="footer">© 2026 — omarinho77 — tutti i diritti riservati</div>
