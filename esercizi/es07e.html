@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>ES07E</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+
+    td {
+      border: 1px solid black;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<script>
+  const table = document.createElement("table");
+  for (let i = 1; i <= 10; i++) {
+    const tr = document.createElement("tr");
+    for (let j = 1; j <= 10; j++) {
+      const td = document.createElement("td");
+      td.textContent = i * j;
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  document.body.appendChild(table);
+</script>
+</body>
+</html>
