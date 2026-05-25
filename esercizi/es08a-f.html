@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ES08A-F</title>
+
+<style>
+    body{
+        font-family: Arial;
+        padding: 20px;
+    }
+
+    input{
+        display: block;
+        margin-bottom: 15px;
+        padding: 8px;
+        width: 250px;
+    }
+
+    button{
+        padding: 10px 20px;
+        background-color: lightblue;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    #errore{
+        color: red;
+        font-weight: bold;
+    }
+
+    #sicurezza{
+        font-weight: bold;
+        margin-top: -10px;
+        margin-bottom: 15px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Form con Eventi JavaScript</h2>
+
+<form>
+
+    <label>Nome</label>
+    <input type="text" class="focusBlur">
+
+    <label>Cognome</label>
+    <input type="text" class="focusBlur">
+
+    <label>Codice Fiscale</label>
+    <input type="text" id="codice_fiscale" class="focusBlur">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <div id="sicurezza"></div>
+
+    <label>Ripeti Password</label>
+    <input type="password" id="ripetipassword">
+
+    <div id="errore"></div>
+
+    <p id="testo">
+        Questo testo verrà nascosto dopo il click.
+    </p>
+
+    <button type="button" id="btnNascondi">
+        Nascondi Testo
+    </button>
+
+    <button type="submit">
+        Invia
+    </button>
+
+</form>
+
+<script>
+
+    let pulsanti = document.querySelectorAll("button");
+
+    pulsanti.forEach(function(btn){
+
+        btn.addEventListener("mouseover", function(){
+            btn.style.backgroundColor = "darkblue";
+            btn.style.color = "white";
+        });
+
+        btn.addEventListener("mouseout", function(){
+            btn.style.backgroundColor = "lightblue";
+            btn.style.color = "black";
+        });
+
+    });
+
+
+    let cf = document.getElementById("codice_fiscale");
+
+    cf.addEventListener("input", function(){
+        cf.value = cf.value.toUpperCase();
+    });
+
+
+
+    let campi = document.querySelectorAll(".focusBlur");
+
+    campi.forEach(function(campo){
+
+        campo.addEventListener("focus", function(){
+            campo.style.backgroundColor = "yellow";
+        });
+
+        campo.addEventListener("blur", function(){
+            campo.style.backgroundColor = "white";
+        });
+
+    });
+
+
+    let bottoneNascondi = document.getElementById("btnNascondi");
+    let testo = document.getElementById("testo");
+
+    bottoneNascondi.addEventListener("click", function(){
+        testo.hidden = true;
+    });
+
+    let password = document.getElementById("password");
+    let ripeti = document.getElementById("ripetipassword");
+    let errore = document.getElementById("errore");
+
+    ripeti.addEventListener("input", function(){
+
+        if(password.value !== ripeti.value){
+            errore.innerHTML = "Le password non coincidono";
+        }
+        else{
+            errore.innerHTML = "";
+        }
+
+    });
+
+
+    let sicurezza = document.getElementById("sicurezza");
+
+    password.addEventListener("input", function(){
+
+        let valore = password.value;
+
+        let haNumero = /[0-9]/.test(valore);
+        let haMaiuscola = /[A-Z]/.test(valore);
+
+     
+        if(valore.length < 6){
+
+            password.style.backgroundColor = "lightcoral";
+            sicurezza.innerHTML = "Password debole";
+            sicurezza.style.color = "red";
+
+        }
+
+        
+        else if(valore.length >= 6 && haNumero){
+
+            password.style.backgroundColor = "khaki";
+            sicurezza.innerHTML = "Password mediamente forte";
+            sicurezza.style.color = "orange";
+
+        }
+
+        
+        if(valore.length >= 8 && haNumero && haMaiuscola){
+
+            password.style.backgroundColor = "lightgreen";
+            sicurezza.innerHTML = "Password forte";
+            sicurezza.style.color = "green";
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
